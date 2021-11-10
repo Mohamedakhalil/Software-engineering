@@ -19,9 +19,10 @@ public:
 	bool login(string, string);
 	void addUser(string, string, vector<string>, double, double, int, string);
 	void setName(string);
+	void setPass(string);
 	string getName();
-	//void deleteUser();
-	//void updateUser(double, double, string, vector<string>);
+	string getPass();
+	void deleteUser();
 	double getPriceRange();
 	double getRate();
 	int getAge();

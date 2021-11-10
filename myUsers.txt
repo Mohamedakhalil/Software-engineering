@@ -1,11 +1,11 @@
-Asameh,asameh20,100,5,43,Hurghada,Hiking,Climbing,1,none,Arabic
 Hloftis,Hloftis2020,150,5,26,Rome,Dancing,Movies,1,none,English
-Hossam11,12345,100,5,29,Rome,Dancing,Sightseeing,0,none,English
-Laila22,Laila22,150,5,30,Alexandria,Hiking,Jogging,0,none,French
+Asameh,asameh20,100,5,43,Hurghada,Hiking,Climbing,1,none,Arabic
+Hossam11,12345,100,5,29,Rome,Dancing,Sightseeing,1,0,none,English
 Mohamed,123,230,5,20,Cairo,Sightseeing,Sports,1, none,Arabic
-FaridaK,4669,200,5,21,Giza,Sightseeing,sports,Sports,0,none,Arabic
+FaridaK,4669,200,5,21,Giza,Sightseeing,sports,Sports,1,0,none,Arabic
 Kareemaka,2006,160,5,15,Luxor,Horseriding,1, none,German
 Eyad,2012,190,5,9,Mekkah,Quran,1,none,Arabic
-Alikhal,987,190,5,51,Luxor,Dancing,0,none,German
-Marwan,516,160,5,19,Mekkah,Travelling,0,none,English
+Alikhal,987,190,5,51,Luxor,Dancing,1,0,none,German
+Marwan,516,160,5,19,Mekkah,Travelling,1,0,none,English
 Khalil,123,1000,5,20,Alexandria,Swimming,Chess,1, I also love watching movies,English
+Laila22,Laila22,150,5,30,Alexandria,Hiking,Jogging,0,0,none,Arabic

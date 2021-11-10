@@ -63,12 +63,12 @@ void Tourist::signUp(string name, string pass)
 	data << 1  << ',' << prefs[0].getPref() << ',' << prefLang << endl;
 }
 
-void Tourist::setStart(int x)
+void Tourist::setStart(string x)
 {
 	start = x;
 }
 
-void Tourist::setEnd(int x)
+void Tourist::setEnd(string x)
 {
 	end = x;
 }
@@ -78,18 +78,17 @@ void Tourist::setLang(string x)
 	prefLang = x;
 }
 
-void Tourist::addpref()
+void Tourist::addpref(Preference x)
 {
-	Preference x;
 	prefs.push_back(x);
 }
 
-int Tourist::getStart()
+string Tourist::getStart()
 {
 	return start;
 }
 
-int Tourist::getEnd()
+string Tourist::getEnd()
 {
 	return end;
 }

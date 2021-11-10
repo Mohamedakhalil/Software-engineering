@@ -1,5 +1,50 @@
 #include "TourGuide.h"
 
+TourGuide TourGuide::login(string name, string pass)
+{
+	if (User::login(name, pass)) {
+		TourGuide x;
+		ifstream data;
+		data.open("myUsers.txt");
+		string searcher, sub;
+		while (!data.eof()) {
+			getline(data, searcher);
+			sub = searcher.substr(0, searcher.find(','));
+			if (name == sub) {
+				break;
+			}
+		}
+		x.setName(sub);
+		searcher.erase(0, searcher.find(',') + 1);
+		searcher.erase(0, searcher.find(',') + 1);
+		sub = searcher.substr(0, searcher.find(','));
+		int num = stoi(sub);
+		x.setPriceRange(num);
+		searcher.erase(0, searcher.find(',') + 1);
+		sub = searcher.substr(0, searcher.find(','));
+		num = stoi(sub);
+		x.setRate(num);
+		searcher.erase(0, searcher.find(',') + 1);
+		searcher.erase(0, searcher.find(',') + 1);
+		sub = searcher.substr(0, searcher.find(','));
+		x.setDestination(sub);
+		while (sub != "0") {
+			searcher.erase(0, searcher.find(',') + 1);
+			sub = searcher.substr(0, searcher.find(','));
+			if (sub != "0")
+				x.activities.push_back(sub);
+		}
+		searcher.erase(0, searcher.find(',') + 1);
+		sub = searcher.substr(0, searcher.find(','));
+		Expertise exp;
+		exp.setExpertise(sub);
+		x.experts.push_back(exp);
+		searcher.erase(0, searcher.find(',') + 1);
+		x.setLang(searcher);
+		return x;
+	}
+}
+
 void TourGuide::setLang(string s)
 {
 	Lang = s;
@@ -20,7 +65,7 @@ void TourGuide::signUp(string name, string pass)
 	Expertise expert;
 	expert.setExpertise();
 	experts.push_back(expert);
-	data << 0 << ',' << experts[0].getexpert() << ',' << Lang << endl;
+	data << getState() << ',' << 0 << ',' << experts[0].getexpert() << ',' << Lang << endl;
 }
 
 void TourGuide::changeState()
@@ -38,4 +83,8 @@ void TourGuide::addexpert()
 bool TourGuide::getState()
 {
 	return available;
+}
+
+void TourGuide::updateUser()
+{
 }

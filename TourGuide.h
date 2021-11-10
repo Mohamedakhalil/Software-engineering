@@ -7,6 +7,7 @@ private:
 	string Lang;
 	bool available=true;
 public:
+	TourGuide login(string, string);
 	vector<Expertise> experts;
 	void setLang(string);
 	string getLang();
@@ -14,5 +15,6 @@ public:
 	void changeState();
 	void addexpert();
 	bool getState();
+	void updateUser();
 };
 

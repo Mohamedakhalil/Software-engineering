@@ -50,21 +50,41 @@ void User::setName(string s)
 {
 	Username = s;
 }
+void User::setPass(string s)
+{
+	password = s;
+}
 string User::getName()
 {
 	return Username;
 }
-//void User::updateUser(double range = 0, double r = 5, string dest = "", vector<string> act) {
-//	for (int i = 0; i < act.size(); i++) {
-//		activities.push_back(act[i]);
-//	}
-//	if (range != priceRange && range != 0)
-//		setPriceRange(range);
-//	if (r != rate && r != 0)
-//		setRate(r);
-//	if (dest != destination && dest != "")
-//		setDestination(dest);
-//}
+string User::getPass()
+{
+	return password;
+}
+void User::deleteUser()
+{
+	string name = this->getName();
+	string s, sub;
+	vector <string> others;
+	fstream data;
+	data.open("myUsers.txt");
+	while (!data.eof()) {
+		getline(data, s);
+		sub = s.substr(0, s.find(','));
+		if (name != sub)
+			others.push_back(s);	
+	}
+	data.close();
+	remove("myUsers.txt");
+	ofstream newfile("myUsers.txt");
+	for (int i = 0;i < others.size();i++) {
+		newfile << others[i];
+		if (i < others.size() - 1)
+			newfile << endl;
+	}
+}
+
 void User::signUp(string name, string pass) {
 	ifstream data;
 	data.open("myUsers.txt");
@@ -122,7 +142,6 @@ bool User::login(string name, string pass) {
 			return false;
 		}
 		else {
-			cout << "Login Successful\n";
 			return true;
 		}
 	}
