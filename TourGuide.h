@@ -13,8 +13,10 @@ public:
 	string getLang();
 	void signUp(string, string);
 	void changeState();
+	void setState(bool);
 	void addexpert();
 	bool getState();
 	void updateUser();
+	bool operator==(TourGuide);
 };
 

@@ -3,8 +3,11 @@
 #include<fstream>
 #include<string>
 #include<vector>
-#include <set>
+#include <algorithm>
 using namespace std;
+
+
+
 class User
 {
 private:
@@ -13,6 +16,7 @@ private:
 	double priceRange=0, rate=5;
 	int age=0;
 	string destination;
+
 public:
 	vector<string> activities;
 	void signUp(string, string);
@@ -33,4 +37,7 @@ public:
 	void setPriceRange(double);
 	void setDestination(string);
 	void setActivities(vector<string>);
+	string acts[6] = { "Sightseeing", "Hiking", "Watching Sports", "Swimming" , "Religious" , "Horse riding" };
+	string langs[5] = { "Arabic", "English", "German" , "French" , "Spanish" };
+	string dests[7] = { "Cairo", "Alexandria", "Luxor", "Rome", "Paris", "Athens", "Mekkah" };
 };

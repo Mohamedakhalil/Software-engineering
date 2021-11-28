@@ -43,6 +43,8 @@ Tourist Tourist::login(string name, string pass)
 		x.setLang(searcher);
 		return x;
 	}
+	else
+		exit(1);
 }
 
 void Tourist::rateTourist(double r)
@@ -55,8 +57,13 @@ void Tourist::signUp(string name, string pass)
 	fstream data;
 	data.open("myUsers.txt", ios::app);
 	User::signUp(name, pass);
-	cout << "Enter your preferred language for communication\n";
-	cin >> prefLang;
+	cout << "Select your preferred language for communication\n when you are done enter (.)\n";
+	for (int i = 0;i < 5;i++) {
+		cout << i + 1 << ". " << langs[i] << endl;
+	}
+	int choice; cin >> choice;
+	string langauge; cin >> langauge;
+	prefLang = langs[choice - 1];
 	Preference pree;
 	pree.setPreference();
 	prefs.push_back(pree);

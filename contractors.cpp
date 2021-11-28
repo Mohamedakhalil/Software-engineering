@@ -27,7 +27,7 @@ bool contract::bookTourguide(Tourist t, TourGuide TG)
 	setPrice(TG);
 	cout << "Tourist Details\n\tClient: " << t.getName() << "\n\n";
 	cout << "Tourguide Details\n\tName of Tourguide: " << TG.getName() << "\n\tDestination: " << TG.getDestination()<< endl;
-	cout << "\tTotal cost of the program: " << getPrice() << "\n\tDate of deposit: " << t.getStart() << "\tDate of final payement: " << t.getEnd() << "\n\n";
+	cout << "\tTotal cost of the program: " << getPrice() << "\n\n";
 	cout << "Refund Policy\n\tIf for any reason the tour is cancelled by the tourguide, a full refund will be made to the contracting party\n";
 	cout << "If you want to confirm your booking enter 1, otherwise enter 0\n\n";
 	int choice; cin >> choice;
@@ -39,6 +39,9 @@ bool contract::bookTourguide(Tourist t, TourGuide TG)
 		TG.addUser(TG.getName(), TG.getPass(), TG.getActivities(), TG.getPriceRange(), TG.getRate(), TG.getAge(), TG.getDestination());
 		data << TG.getState()  << ',' << 0 << ',' << TG.experts[0].getexpert() << ',' << TG.getLang() << endl;
 		payment();
+		fstream crm;
+		crm.open("myCRM.txt", ios::app);
+		crm << TG.getName() << ',' << getPrice() << ',' << t.getName() << endl;
 		cout << "Your booking has been confirmed\n";
 		return false;
 	}

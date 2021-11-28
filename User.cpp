@@ -105,15 +105,25 @@ void User::signUp(string name, string pass) {
 		int age; cin >> age;
 		cout << "Enter your preferred price range\n";
 		double range; cin >> range;
-		cout << "Enter your preferred Destination\n";
-		string dest; cin >> dest;
-		vector<string> act; string hobb;
-		cout << "Enter your hobbies\n";
-		while (hobb!=".") {
+		cout << "Enter your preferred Destination from this list\n";
+		for (int i = 0;i < 7;i++) {
+			cout << i + 1 << ". " << dests[i] << endl;
+		}
+		int destination;
+		cin >> destination;
+		string dest; dest = dests[destination - 1];
+		vector<string> act; string hobb; int num;
+		cout << "Select your hobbies from this list\n when you are done enter (.)\n";
+		for (int i = 0;i < 6;i++) {
+			cout << i + 1 << ". " << acts[i] << endl;
+		}
+		while (hobb != ".") {
 			cin >> hobb;
-			if (hobb != ".")
-				act.push_back(hobb);
-		} 
+			if (hobb != ".") {
+				num = stoi(hobb);
+				act.push_back(acts[num-1]);
+			}
+		}
 		this->addUser(name, pass, act, range, 5, age, dest);
 	}
 }

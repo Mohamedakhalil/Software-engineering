@@ -60,8 +60,13 @@ void TourGuide::signUp(string name, string pass)
 	fstream data;
 	data.open("myUsers.txt", ios::app);
 	User::signUp(name, pass);
-	cout << "Enter your preferred language for communication\n";
-	cin >> Lang;
+	cout << "Select your preferred language for communication\n when you are done enter (.)\n";
+	for (int i = 0;i < 5;i++) {
+		cout << i + 1 << ". " << langs[i] << endl;
+	}
+	int choice; cin >> choice;
+	string langauge; cin >> langauge;
+	Lang = langs[choice - 1];
 	Expertise expert;
 	expert.setExpertise();
 	experts.push_back(expert);
@@ -71,6 +76,11 @@ void TourGuide::signUp(string name, string pass)
 void TourGuide::changeState()
 {
 	available = !available;
+}
+
+void TourGuide::setState(bool flag)
+{
+	available = flag;
 }
 
 void TourGuide::addexpert()
@@ -87,4 +97,7 @@ bool TourGuide::getState()
 
 void TourGuide::updateUser()
 {
+}
+bool TourGuide::operator==(TourGuide tg) {
+	return(this->getName() == tg.getName());
 }

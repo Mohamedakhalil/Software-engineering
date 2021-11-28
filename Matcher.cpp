@@ -65,18 +65,21 @@ Matcher::Matcher()
 void Matcher::compareLang(Tourist t, TourGuide g)
 {
 	if (t.getLang() == g.getLang())
+		if (find(valids.begin(), valids.end(), g) == valids.end())
 		valids.push_back(g);
 }
 
 void Matcher::compareDest(Tourist t, TourGuide g)
 {
 	if (t.getDestination() == g.getDestination())
+		if (find(valids.begin(), valids.end(), g) == valids.end())
 		valids.push_back(g);
 }
 
 void Matcher::comparePrice(Tourist t, TourGuide g)
 {
 	if (t.getPriceRange() == g.getPriceRange())
+		if(find(valids.begin(),valids.end(), g) == valids.end())
 		valids.push_back(g);
 }
 
@@ -85,6 +88,7 @@ void Matcher::compareAct(Tourist t, TourGuide g)
 	for (int i = 0; i < t.activities.size(); i++) {
 		for (int j = 0; j < g.activities.size(); j++) {
 			if (t.activities[i] == g.activities[j]) {
+				if (find(valids.begin(), valids.end(), g) == valids.end())
 				valids.push_back(g);
 				return;
 			}
